@@ -55,6 +55,37 @@
             return shows;
         }
 
+        public static List<string> GetLatestShows(string baseUrl)
+        {
+            List<string> shows = new List<string>();
+            var url = $"{baseUrl}drama/page-REPLACE/?selOrder=0&selCat=0&selCountry=0&selYear=0&btnFilter=Submit";
+
+            var auxUrl = url.Replace("REPLACE", "1");
+            WebClient wb = new WebClient() { Encoding = Encoding.UTF8 };
+
+            var inner = wb.DownloadString(auxUrl);
+
+            var aux = inner.Split(new string[] { "<div id=\"list-1\" class=\"list\">" }, StringSplitOptions.None)[1];
+            aux = aux.Split(new string[] { "<ul class=\"pagination\"><" }, StringSplitOptions.None)[0];
+
+            var hrefs = aux.Split(new string[] { $"<h2><a href=\"{baseUrl}drama/" }, StringSplitOptions.None).ToList();
+            hrefs.RemoveAt(0);
+
+            if (hrefs.Count() == 0)
+            {
+                throw new Exception();
+            }
+
+            foreach (var item in hrefs)
+            {
+                var href = item.Split(new string[] { "/" }, StringSplitOptions.None)[0];
+                var finalurl = $"{baseUrl}drama/{href}";
+                shows.Add(finalurl);
+            }
+
+            return shows;
+        }
+
         public static List<string> GetAzVideoFiles(string url)
         {
             var result = new List<string>();

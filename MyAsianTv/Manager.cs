@@ -40,6 +40,11 @@
             return Helpers.GetAllShows(AllShowsUrl);
         }
 
+        public List<string> GetLatestShows()
+        {
+            return Helpers.GetLatestShows(AllShowsUrl);
+        }
+
         public List<Episode> GetEpisodes(List<Episode> episodes, Show show)
         {
             List<Episode> result = new List<Episode>();

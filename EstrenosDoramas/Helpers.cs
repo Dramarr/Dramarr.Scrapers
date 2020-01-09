@@ -36,6 +36,29 @@
             return result;
         }
 
+        public static List<string> GetLatestShows(string url)
+        {
+            var result = new List<string>();
+
+            using (var wc = new WebClient())
+            {
+                var inner = wc.DownloadString(url);
+
+                var aux = inner.Split(new string[] { "<h3 class=\"widgetitulo\">Últimas Series</h3>" }, StringSplitOptions.None)[1];
+                aux = aux.Split(new string[] { "<div class=\"clear\"></div>" }, StringSplitOptions.None)[0];
+
+                var splitHref = aux.Split(new string[] { "<a href=\"" }, StringSplitOptions.None).ToList();
+                splitHref.RemoveAt(0);
+
+                foreach (var item in splitHref)
+                {
+                    var showUrl = item.Split(new string[] { "\"" }, StringSplitOptions.None)[0];
+                    result.Add(showUrl);
+                }
+            }
+            return result;
+        }
+
         public static List<string> GetFiles(string url)
         {
             var episodes = GetEpisodesPreDownloadFiles(url);

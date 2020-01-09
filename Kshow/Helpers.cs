@@ -16,6 +16,13 @@
             return result;
         }
 
+        public static List<string> GetLatestShows(string url)
+        {
+            var result = new List<string>();
+            result.AddRange(GetShowsFromFirstPage(url));
+            return result;
+        }
+
         public static List<string> GetAzVideoFiles(string baseUrl, string url)
         {
             var result = new List<string>();
@@ -130,6 +137,51 @@
                     }
 
                 } while (!isFinished);
+            }
+
+            return result;
+        }
+
+        private static List<string> GetShowsFromFirstPage(string baseUrl)
+        {
+            var result = new List<string>();
+            var pages = new List<string>() { "shows/latest/", "shows/popular/" };
+
+            foreach (var page in pages)
+            {
+                var pagedUrl = $"{baseUrl}{page}page-1";
+
+                using (var wc = new WebClient())
+                {
+                    var inner = wc.DownloadString(pagedUrl);
+
+                    var split = inner.Split(new string[] { "<div class=\"col-md-8\" id=\"main\">" }, StringSplitOptions.None)[1]
+                        .Split(new string[] { "<ul class=\"pagination pull-right\">" }, StringSplitOptions.None)[0];
+
+                    var shows = split.Split(new string[] { $"<a href=\"{baseUrl}shows/" }, StringSplitOptions.None).ToList();
+
+                    if (shows.Count == 1)
+                    {
+                        throw new Exception();
+                    }
+
+                    shows.RemoveAt(0);
+
+                    foreach (var item in shows)
+                    {
+                        try
+                        {
+                            var res = item.Split(new string[] { "\"" }, StringSplitOptions.None)[0].Split("/")[0];
+                            if (!result.Contains(res))
+                            {
+                                result.Add($"{baseUrl}shows/{res}");
+                            }
+                        }
+                        catch
+                        {
+                        }
+                    }
+                }
             }
 
             return result;
