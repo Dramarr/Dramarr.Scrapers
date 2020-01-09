@@ -30,7 +30,7 @@
 
         #region Methods
 
-        public static Tuple<int, bool> GetStatus(string url)
+        public Tuple<int, bool> GetStatus(string url)
         {
             return new Tuple<int, bool>(0, false);
         }
