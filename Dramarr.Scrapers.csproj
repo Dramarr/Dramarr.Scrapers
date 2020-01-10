@@ -19,7 +19,7 @@
 
   <ItemGroup>
     <PackageReference Include="Dramarr.Core" Version="1.0.0.2" />
-    <PackageReference Include="Dramarr.Data" Version="1.0.0.4" />
+    <PackageReference Include="Dramarr.Data" Version="1.0.0.5" />
     <PackageReference Include="RestSharp" Version="106.10.0" />
   </ItemGroup>
 
