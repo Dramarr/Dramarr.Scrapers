@@ -1,9 +1,19 @@
-<p align="center"><img src="https://github.com/Dramarr/Resources/blob/master/Images/logo.jpg?raw=true" width="300px;" height="300px" /></p>
+<p align="center"><img src="https://github.com/Dramarr/Resources/blob/master/Images/logo.jpg?raw=true" width="100px;" height="100px" /></p>
 
-> Scraping library for all sources in [Dramarr](https://dramarr.com).
+<h1 align="center">Dramarr</h1>
 
-![Nuget](https://img.shields.io/nuget/v/Dramarr.Scrapers)
+<p align="center">
+    <a href="https://travis-ci.org/Dramarr/Dramarr.Scrapers.svg">
+        <img src="https://travis-ci.org/Dramarr/Dramarr.Scrapers.svg?branch=master"
+             alt="build status">
+    </a>
+    <a href="https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=UBYQDM59B3GCC">
+        <img src="https://img.shields.io/badge/donate-PayPal-green.svg"
+             alt="Donate a coffee!">
+    </a>
+    <a href="LICENSE">
+        <img src="https://img.shields.io/github/license/mashape/apistatus.svg">
+    </a>    
+</p>
 
-## License
-
-> [BSD 3-Clause "New" or "Revised" License](https://github.com/Dramarr/Dramarr.Scrapers/blob/master/LICENSE)
+<p align="center">Scrapers library that fetch doramas' information from different sources</p>
