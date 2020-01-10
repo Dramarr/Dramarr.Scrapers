@@ -187,6 +187,23 @@
             return result;
         }
 
+        public static Tuple<int, bool> GetStatus(string baseUrl, string urlTitle)
+        {
+            var result = new List<string>();
+            var realUrl = $"{baseUrl}drama/{urlTitle}/";
+
+            var episodesCount = GetAzVideoFiles(baseUrl, urlTitle);
+            var isCompleted = false;
+
+            using (var wc = new WebClient())
+            {
+                var aux = wc.DownloadString(realUrl);
+                isCompleted = aux.Contains("Complete");
+            }
+
+            return new Tuple<int, bool>(episodesCount.Count, isCompleted);
+        }
+
         #endregion Methods
     }
 }

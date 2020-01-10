@@ -105,6 +105,35 @@
             }
         }
 
+        public static Tuple<int, bool> GetStatus(string baseUrl, string urlTitle)
+        {
+            var result = new List<string>();
+            var realUrl = $"{baseUrl}drama/{urlTitle}/";
+
+            using (var wc = new WebClient())
+            {
+                var aux = wc.DownloadString(realUrl);
+
+                var status = aux.Split(new string[] { "<strong>Status:</strong>" }, StringSplitOptions.None)[1]
+                    .Split(new string[] { "<span>" }, StringSplitOptions.None)[1]
+                    .Split(new string[] { "</" }, StringSplitOptions.None)[0];
+
+                var isCompleted = status == "Complete";
+
+                var episodeCount = aux.Split(new string[] { $"{realUrl}episode-" }, StringSplitOptions.None).ToList();
+
+                episodeCount.RemoveAt(0);
+
+                foreach (var item in episodeCount)
+                {
+                    var newUlr = item.Split(new string[] { "\"" }, StringSplitOptions.None)[0];
+                    result.Add($"http://azvideo.net/{newUlr}");
+                }
+
+                return new Tuple<int, bool>(result.Count, isCompleted);
+            }
+        }
+
         public static Tuple<string, string> GetDownloadFile(string url)
         {
             using (var wc = new WebClient())

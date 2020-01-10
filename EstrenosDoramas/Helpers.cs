@@ -135,6 +135,21 @@
             return res;
         }
 
+        public static Tuple<int, bool> GetStatus(string url)
+        {
+            var episodesCount  = GetEpisodesPreDownloadFiles(url);
+            var isCompleted = false;
+
+            using (var wc = new WebClient())
+            {
+                var aux = wc.DownloadString($"https://www.estrenosdoramas.net{url}");
+                isCompleted = !aux.Contains("<b>Emisión</b>");
+            }
+
+            return new Tuple<int, bool>(episodesCount.Count, isCompleted);
+        }
+
+
         #endregion Methods
     }
 }

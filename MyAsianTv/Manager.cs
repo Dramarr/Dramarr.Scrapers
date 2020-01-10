@@ -62,9 +62,9 @@
             return result;
         }
 
-        public Tuple<int, bool> GetStatus(string url)
+        public Tuple<int, bool> GetStatus(string urlTitle)
         {
-            return new Tuple<int, bool>(0, false);
+            return Helpers.GetStatus(AllShowsUrl, urlTitle);
         }
 
         #endregion Methods

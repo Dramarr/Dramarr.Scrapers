@@ -4,6 +4,7 @@
 
     using static Dramarr.Core.Enums.EnumsHelpers;
     using Dramarr.Data.Model;
+    using System;
 
     public class Manager
     {
@@ -53,6 +54,11 @@
             }
 
             return result;
+        }
+
+        public Tuple<int, bool> GetStatus(string urlTitle)
+        {
+            return Helpers.GetStatus(BaseUrl, urlTitle);
         }
 
         #endregion Methods
