@@ -190,7 +190,7 @@
         public static Tuple<int, bool> GetStatus(string baseUrl, string urlTitle)
         {
             var result = new List<string>();
-            var realUrl = $"{baseUrl}drama/{urlTitle}/";
+            var realUrl = $"{baseUrl}shows/{urlTitle}/";
 
             var episodesCount = GetAzVideoFiles(baseUrl, urlTitle);
             var isCompleted = false;
