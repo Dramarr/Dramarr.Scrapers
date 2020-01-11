@@ -30,6 +30,8 @@
 
             using (var wc = new WebClient())
             {
+                wc.Headers.Add("user-agent", "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko)");
+
                 var inner = wc.DownloadString($"{baseUrl}shows/{url}");
 
                 var aux = inner
@@ -63,6 +65,8 @@
         {
             using (var wc = new WebClient())
             {
+                wc.Headers.Add("user-agent", "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko)");
+
                 try
                 {
                     var inner = wc.DownloadString(url);
@@ -100,6 +104,8 @@
 
                         using (var wc = new WebClient())
                         {
+                            wc.Headers.Add("user-agent", "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko)");
+
                             var inner = wc.DownloadString(pagedUrl);
 
                             var split = inner.Split(new string[] { "<div class=\"col-md-8\" id=\"main\">" }, StringSplitOptions.None)[1]
@@ -198,6 +204,8 @@
 
             using (var wc = new WebClient())
             {
+                wc.Headers.Add("user-agent", "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko)");
+
                 var aux = wc.DownloadString(realUrl);
                 isCompleted = aux.Contains("Complete");
             }
@@ -211,6 +219,8 @@
 
             using (var wc = new WebClient())
             {
+                wc.Headers.Add("user-agent", "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko)");
+
                 var aux = wc.DownloadString(realUrl);
 
                 var imageUrl = aux.Split(new string[] { "<img class=\"media-object\" src=\"" }, StringSplitOptions.None)[1]

@@ -93,6 +93,8 @@
 
             using (var wc = new WebClient())
             {
+                wc.Headers.Add("user-agent", "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko)");
+
                 var aux = wc.DownloadString(url).Split(new string[] { "http://azvideo.net/" }, StringSplitOptions.None).ToList();
                 aux.RemoveAt(0);
 
@@ -113,6 +115,8 @@
 
             using (var wc = new WebClient())
             {
+                wc.Headers.Add("user-agent", "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko)");
+
                 var aux = wc.DownloadString(realUrl);
 
                 var status = aux.Split(new string[] { "<strong>Status:</strong>" }, StringSplitOptions.None)[1]
@@ -142,6 +146,8 @@
 
             using (var wc = new WebClient())
             {
+                wc.Headers.Add("user-agent", "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko)");
+
                 var aux = wc.DownloadString(realUrl);
 
                 var imageUrl = aux.Split(new string[] { "<img class=\"poster\" src=\"" }, StringSplitOptions.None)[1]
@@ -169,6 +175,8 @@
         {
             using (var wc = new WebClient())
             {
+                wc.Headers.Add("user-agent", "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko)");
+
                 try
                 {
                     var inner = wc.DownloadString(url);

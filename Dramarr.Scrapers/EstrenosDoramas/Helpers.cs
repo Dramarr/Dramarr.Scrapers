@@ -19,6 +19,8 @@
 
             using (var wc = new WebClient())
             {
+                wc.Headers.Add("user-agent", "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko)");
+
                 var inner = wc.DownloadString(url);
 
                 var aux = inner.Split(new string[] { "<ul id=\"dramaslist\">" }, StringSplitOptions.None)[1];
@@ -42,6 +44,8 @@
 
             using (var wc = new WebClient())
             {
+                wc.Headers.Add("user-agent", "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko)");
+
                 var inner = wc.DownloadString(url);
 
                 var aux = inner.Split(new string[] { "<h3 class=\"widgetitulo\">Últimas Series</h3>" }, StringSplitOptions.None)[1];
@@ -118,6 +122,8 @@
 
             using (WebClient wc = new WebClient())
             {
+                wc.Headers.Add("user-agent", "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko)");
+
                 var inner = wc.DownloadString($"https://www.estrenosdoramas.net{url}")
                     .Split(new string[] { "<div class=\"listanime\">" }, StringSplitOptions.None)[1]
                     .Split(new string[] { "<li class=\"current\">" }, StringSplitOptions.None)[0]
@@ -142,6 +148,8 @@
 
             using (var wc = new WebClient())
             {
+                wc.Headers.Add("user-agent", "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko)");
+
                 var aux = wc.DownloadString($"https://www.estrenosdoramas.net{url}");
                 isCompleted = !aux.Contains("<b>Emisión</b>");
             }
@@ -154,6 +162,8 @@
         {
             using (var wc = new WebClient())
             {
+                wc.Headers.Add("user-agent", "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko)");
+
                 var aux = wc.DownloadString($"https://www.estrenosdoramas.net{urlTitle}");
 
                 var imageUrl = aux.Split(new string[] { "<img style=\"float: left; margin-bottom: 1em; margin-right: 1em;\" src=\"" }, StringSplitOptions.None)[1]
@@ -162,7 +172,7 @@
                 var plot = aux.Split(new string[] { "<b>Sinopsis:</b>" }, StringSplitOptions.None)[1]
                     .Split(new string[] { "/>" }, StringSplitOptions.None)[1]
                     .Split(new string[] { "<" }, StringSplitOptions.None)[0]
-                    .Replace("\n","");
+                    .Replace("\n", "");
 
                 var cast = "";
 
