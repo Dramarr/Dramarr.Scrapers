@@ -58,6 +58,11 @@
             return result;
         }
 
+        public Metadata GetMetadata(string urlTitle)
+        {
+            return Helpers.GetMetadata(urlTitle);
+        }
+
         #endregion Methods
     }
 }

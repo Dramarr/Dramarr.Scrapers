@@ -1,5 +1,6 @@
 ﻿namespace Dramarr.Scrapers.Kshow
 {
+    using Dramarr.Data.Model;
     using System;
     using System.Collections.Generic;
     using System.Linq;
@@ -202,6 +203,30 @@
             }
 
             return new Tuple<int, bool>(episodesCount.Count, isCompleted);
+        }
+
+        public static Metadata GetMetadata(string baseUrl, string urlTitle)
+        {
+            var realUrl = $"{baseUrl}shows/{urlTitle}/";
+
+            using (var wc = new WebClient())
+            {
+                var aux = wc.DownloadString(realUrl);
+
+                var imageUrl = aux.Split(new string[] { "<img class=\"media-object\" src=\"" }, StringSplitOptions.None)[1]
+                .Split('"')[0];
+
+                var plot = aux.Split(new string[] { "<div class=\"right\">" }, StringSplitOptions.None)[1]
+                    .Split(new string[] { "</span>" }, StringSplitOptions.None)[0];
+
+
+                var cast = aux.Split(new string[] { "<strong>Cast:</strong>" }, StringSplitOptions.None)[1]
+                    .Split(new string[] { $"</p>" }, StringSplitOptions.None)[0];
+
+                var language = "English";
+
+                return new Metadata(imageUrl, plot, cast, language);
+            }
         }
 
         #endregion Methods

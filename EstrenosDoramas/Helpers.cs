@@ -4,7 +4,7 @@
     using System.Collections.Generic;
     using System.Linq;
     using System.Net;
-
+    using Dramarr.Data.Model;
     using Newtonsoft.Json;
 
     using RestSharp;
@@ -137,7 +137,7 @@
 
         public static Tuple<int, bool> GetStatus(string url)
         {
-            var episodesCount  = GetEpisodesPreDownloadFiles(url);
+            var episodesCount = GetEpisodesPreDownloadFiles(url);
             var isCompleted = false;
 
             using (var wc = new WebClient())
@@ -147,6 +147,28 @@
             }
 
             return new Tuple<int, bool>(episodesCount.Count, isCompleted);
+        }
+
+
+        public static Metadata GetMetadata(string urlTitle)
+        {
+            using (var wc = new WebClient())
+            {
+                var aux = wc.DownloadString($"https://www.estrenosdoramas.net{urlTitle}");
+
+                var imageUrl = aux.Split(new string[] { "<img style=\"float: left; margin-bottom: 1em; margin-right: 1em;\" src=\"" }, StringSplitOptions.None)[1]
+                .Split('"')[0];
+
+                var plot = aux.Split(new string[] { "<b>Sinopsis:</b>" }, StringSplitOptions.None)[1]
+                    .Split(new string[] { "<br>" }, StringSplitOptions.None)[1]
+                    .Split(new string[] { "<p>" }, StringSplitOptions.None)[0];
+
+                var cast = "";
+
+                var language = "Spanish";
+
+                return new Metadata(imageUrl, plot, cast, language);
+            }
         }
 
 
