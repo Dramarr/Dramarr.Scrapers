@@ -12,4 +12,5 @@ before_script:
     
 script:
     - dotnet build Dramarr.Scrapers/Dramarr.Scrapers.csproj
+    - dotnet build Dramarr.Scrapers.Tests/Dramarr.Scrapers.Tests.csproj
     - dotnet test Dramarr.Scrapers.Tests/Dramarr.Scrapers.Tests.csproj
