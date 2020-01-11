@@ -67,6 +67,11 @@
             return Helpers.GetStatus(AllShowsUrl, urlTitle);
         }
 
+        public Metadata GetMetadata(string urlTitle)
+        {
+            return Helpers.GetMetadata(AllShowsUrl, urlTitle);
+        }
+
         #endregion Methods
     }
 }

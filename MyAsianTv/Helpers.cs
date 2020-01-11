@@ -1,5 +1,6 @@
 ﻿namespace Dramarr.Scrapers.MyAsianTv
 {
+    using Dramarr.Data.Model;
     using System;
     using System.Collections.Generic;
     using System.Linq;
@@ -131,6 +132,36 @@
                 }
 
                 return new Tuple<int, bool>(result.Count, isCompleted);
+            }
+        }
+
+        public static Metadata GetMetadata(string baseUrl, string urlTitle)
+        {
+            var result = new List<string>();
+            var realUrl = $"{baseUrl}drama/{urlTitle}/";
+
+            using (var wc = new WebClient())
+            {
+                var aux = wc.DownloadString(realUrl);
+
+                var imageUrl = aux.Split(new string[] { "<img class=\"poster\" src=\"" }, StringSplitOptions.None)[1]
+                .Split('"')[0];
+
+                var plot = aux.Split(new string[] { "<div class=\"right\">" }, StringSplitOptions.None)[1]
+                    .Split(new string[] { $"<div class=\"info\">" }, StringSplitOptions.None)[1]
+                    .Split(new string[] { "<hr>" }, StringSplitOptions.None)[0]
+                    .Replace("<p>", "")
+                    .Replace("</p>", "");
+
+
+                var cast = aux.Split(new string[] { "<div class=\"left\">" }, StringSplitOptions.None)[1]
+                    .Split(new string[] { $"<strong>Cast:</strong>" }, StringSplitOptions.None)[1]
+                    .Split(new string[] { "<span>" }, StringSplitOptions.None)[1]
+                    .Split(new string[] { "<" }, StringSplitOptions.None)[0];
+
+                var language = "English";
+
+                return new Metadata(imageUrl, plot, cast, language);
             }
         }
 
