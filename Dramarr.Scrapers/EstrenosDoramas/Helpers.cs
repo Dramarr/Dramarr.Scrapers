@@ -160,8 +160,9 @@
                 .Split('"')[0];
 
                 var plot = aux.Split(new string[] { "<b>Sinopsis:</b>" }, StringSplitOptions.None)[1]
-                    .Split(new string[] { "<br>" }, StringSplitOptions.None)[1]
-                    .Split(new string[] { "<p>" }, StringSplitOptions.None)[0];
+                    .Split(new string[] { "/>" }, StringSplitOptions.None)[1]
+                    .Split(new string[] { "<" }, StringSplitOptions.None)[0]
+                    .Replace("\n","");
 
                 var cast = "";
 

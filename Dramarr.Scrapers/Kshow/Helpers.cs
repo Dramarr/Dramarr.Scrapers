@@ -216,8 +216,21 @@
                 var imageUrl = aux.Split(new string[] { "<img class=\"media-object\" src=\"" }, StringSplitOptions.None)[1]
                 .Split('"')[0];
 
-                var plot = aux.Split(new string[] { "<div class=\"right\">" }, StringSplitOptions.None)[1]
-                    .Split(new string[] { "</span>" }, StringSplitOptions.None)[0];
+                var realImageUrl = baseUrl.Remove(baseUrl.Length - 1, 1) + imageUrl;
+
+                var plot = "";
+
+                try
+                {
+                    plot = aux.Split(new string[] { "<span class=\"pl-header-description-text\">" }, StringSplitOptions.None)[1]
+                        .Split(new string[] { "<" }, StringSplitOptions.None)[0];
+                }
+                catch (Exception)
+                {
+                    plot = aux.Split(new string[] { "<div class=\"desc\">" }, StringSplitOptions.None)[1]
+                        .Split(new string[] { "<p>" }, StringSplitOptions.None)[1]
+                        .Split(new string[] { "<" }, StringSplitOptions.None)[0];
+                }
 
 
                 var cast = aux.Split(new string[] { "<strong>Cast:</strong>" }, StringSplitOptions.None)[1]
@@ -225,7 +238,7 @@
 
                 var language = "English";
 
-                return new Metadata(imageUrl, plot, cast, language);
+                return new Metadata(realImageUrl, plot, cast, language);
             }
         }
 

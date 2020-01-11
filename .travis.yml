@@ -7,8 +7,9 @@ os:
   - linux
 
 before_script:
-    - dotnet restore ./Dramarr.Scrapers.csproj
+    - dotnet restore Dramarr.Scrapers/Dramarr.Scrapers.csproj
+    - dotnet restore Dramarr.Scrapers.Tests/Dramarr.Scrapers.Tests.csproj
     
-  
 script:
-    - dotnet build ./Dramarr.Scrapers.csproj
+    - dotnet build Dramarr.Scrapers/Dramarr.Scrapers.csproj
+    - dotnet test Dramarr.Scrapers.Tests/Dramarr.Scrapers.Tests.csproj
