@@ -4,7 +4,7 @@
     using System.Collections.Generic;
     using System.Linq;
 
-    using static Dramarr.Core.Enums.EnumsHelpers;
+    using static Dramarr.Core.Enums.EpisodeHelpers;
     using Dramarr.Data.Model;
 
     public class Manager

@@ -2,7 +2,7 @@
 {
     using System.Collections.Generic;
 
-    using static Dramarr.Core.Enums.EnumsHelpers;
+    using static Dramarr.Core.Enums.EpisodeHelpers;
     using Dramarr.Data.Model;
     using System;
 
