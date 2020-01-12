@@ -6,8 +6,8 @@
     <Description>Scrapers library for Dramarr</Description>
     <PackageLicenseFile>LICENSE</PackageLicenseFile>
     <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
-    <Version>1.0.0.9</Version>
-    <FileVersion>1.0.0.9</FileVersion>
+    <Version>1.0.0.10</Version>
+    <FileVersion>1.0.0.10</FileVersion>
   </PropertyGroup>
 
   <ItemGroup>

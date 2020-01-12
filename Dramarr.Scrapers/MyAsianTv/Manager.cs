@@ -10,6 +10,12 @@
     {
         #region Constructors
 
+        /// <summary>
+        /// Constructor
+        /// </summary>
+        /// <param name="episodeUrl"></param>
+        /// <param name="allShowsUrl"></param>
+        /// <param name="latestEpisodesUrl"></param>
         public Manager(string episodeUrl, string allShowsUrl, string latestEpisodesUrl)
         {
             EpisodeUrl = episodeUrl;
@@ -17,6 +23,9 @@
             LatestEpisodesUrl = latestEpisodesUrl;
         }
 
+        /// <summary>
+        /// Constructor
+        /// </summary>
         public Manager()
         {
         }
@@ -35,16 +44,30 @@
 
         #region Methods
 
+        /// <summary>
+        /// Gets all shows
+        /// </summary>
+        /// <returns></returns>
         public List<string> GetAllShows()
         {
             return Helpers.GetAllShows(AllShowsUrl);
         }
 
+        /// <summary>
+        /// Gets latest shows
+        /// </summary>
+        /// <returns></returns>
         public List<string> GetLatestShows()
         {
             return Helpers.GetLatestShows(AllShowsUrl);
         }
 
+        /// <summary>
+        /// Gets episodes of show
+        /// </summary>
+        /// <param name="episodes"></param>
+        /// <param name="show"></param>
+        /// <returns></returns>
         public List<Episode> GetEpisodes(List<Episode> episodes, Show show)
         {
             List<Episode> result = new List<Episode>();
@@ -62,11 +85,21 @@
             return result;
         }
 
+        /// <summary>
+        /// Gets status of show
+        /// </summary>
+        /// <param name="urlTitle"></param>
+        /// <returns></returns>
         public Tuple<int, bool> GetStatus(string urlTitle)
         {
             return Helpers.GetStatus(AllShowsUrl, urlTitle);
         }
 
+        /// <summary>
+        /// Gets metadata of show
+        /// </summary>
+        /// <param name="urlTitle"></param>
+        /// <returns></returns>
         public Metadata GetMetadata(string urlTitle)
         {
             return Helpers.GetMetadata(AllShowsUrl, urlTitle);

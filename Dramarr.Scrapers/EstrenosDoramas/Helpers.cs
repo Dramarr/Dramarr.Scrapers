@@ -13,6 +13,11 @@
     {
         #region Methods
 
+        /// <summary>
+        /// Gets all shows
+        /// </summary>
+        /// <param name="url"></param>
+        /// <returns></returns>
         public static List<string> GetAllShows(string url)
         {
             var result = new List<string>();
@@ -39,6 +44,11 @@
             return result;
         }
 
+        /// <summary>
+        /// Gets latest shows
+        /// </summary>
+        /// <param name="url"></param>
+        /// <returns></returns>
         public static List<string> GetLatestShows(string url)
         {
             var result = new List<string>();
@@ -65,6 +75,11 @@
             return result;
         }
 
+        /// <summary>
+        /// Get files
+        /// </summary>
+        /// <param name="url"></param>
+        /// <returns></returns>
         public static List<string> GetFiles(string url)
         {
             var episodes = GetEpisodesPreDownloadFiles(url);
@@ -72,6 +87,11 @@
             return result;
         }
 
+        /// <summary>
+        /// Gets download files
+        /// </summary>
+        /// <param name="episodes"></param>
+        /// <returns></returns>
         private static List<string> GetDownloadFiles(List<string> episodes)
         {
             var result = new List<string>();
@@ -118,6 +138,11 @@
             return result;
         }
 
+        /// <summary>
+        /// Gets episodes to download from this specified source
+        /// </summary>
+        /// <param name="url"></param>
+        /// <returns></returns>
         private static List<string> GetEpisodesPreDownloadFiles(string url)
         {
             var res = new List<string>();
@@ -144,6 +169,11 @@
             return res;
         }
 
+        /// <summary>
+        /// Gets show status
+        /// </summary>
+        /// <param name="url"></param>
+        /// <returns></returns>
         public static Tuple<int, bool> GetStatus(string url)
         {
             var episodesCount = GetEpisodesPreDownloadFiles(url);
@@ -161,7 +191,11 @@
             return new Tuple<int, bool>(episodesCount.Count, isCompleted);
         }
 
-
+        /// <summary>
+        /// Gets shows metadata
+        /// </summary>
+        /// <param name="urlTitle"></param>
+        /// <returns></returns>
         public static Metadata GetMetadata(string urlTitle)
         {
             using (var wc = new WebClient())
