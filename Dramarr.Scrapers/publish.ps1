@@ -5,5 +5,6 @@ if ((Test-Path "bin")) {
 dotnet build -c Release
 dotnet pack -c Release
 dotnet nuget push bin\Release\*.nupkg -s "https://nuget.org"
+dotnet nuget push bin\Release\*.nupkg -s "github-dramarr"
 
 
