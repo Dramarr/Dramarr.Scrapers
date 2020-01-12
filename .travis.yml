@@ -16,6 +16,6 @@ before_script:
     - dotnet restore Dramarr.Scrapers.Tests/Dramarr.Scrapers.Tests.csproj
     
 script:
-    - dotnet build Dramarr.Scrapers/Dramarr.Scrapers.csproj
-    - dotnet build Dramarr.Scrapers.Tests/Dramarr.Scrapers.Tests.csproj
+    - dotnet build Dramarr.Scrapers/Dramarr.Scrapers.csproj --configuration Release
+    - dotnet build Dramarr.Scrapers.Tests/Dramarr.Scrapers.Tests.csproj --configuration Release
     # - dotnet test Dramarr.Scrapers.Tests/Dramarr.Scrapers.Tests.csproj
