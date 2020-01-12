@@ -11,6 +11,11 @@
     {
         #region Methods
 
+        /// <summary>
+        /// Gets all shows
+        /// </summary>
+        /// <param name="baseUrl"></param>
+        /// <returns></returns>
         public static List<string> GetAllShows(string baseUrl)
         {
             List<string> shows = new List<string>();
@@ -61,6 +66,11 @@
             return shows;
         }
 
+        /// <summary>
+        /// Gets latest shows
+        /// </summary>
+        /// <param name="baseUrl"></param>
+        /// <returns></returns>
         public static List<string> GetLatestShows(string baseUrl)
         {
             List<string> shows = new List<string>();
@@ -94,11 +104,16 @@
                 }
             }
 
-           
+
 
             return shows;
         }
 
+        /// <summary>
+        /// Gets az video files
+        /// </summary>
+        /// <param name="url"></param>
+        /// <returns></returns>
         public static List<string> GetAzVideoFiles(string url)
         {
             var result = new List<string>();
@@ -121,6 +136,12 @@
             }
         }
 
+        /// <summary>
+        /// Gets status of show
+        /// </summary>
+        /// <param name="baseUrl"></param>
+        /// <param name="urlTitle"></param>
+        /// <returns></returns>
         public static Tuple<int, bool> GetStatus(string baseUrl, string urlTitle)
         {
             var result = new List<string>();
@@ -153,6 +174,12 @@
             }
         }
 
+        /// <summary>
+        /// Gets metadata of show
+        /// </summary>
+        /// <param name="baseUrl"></param>
+        /// <param name="urlTitle"></param>
+        /// <returns></returns>
         public static Metadata GetMetadata(string baseUrl, string urlTitle)
         {
             var result = new List<string>();
@@ -186,6 +213,11 @@
             }
         }
 
+        /// <summary>
+        /// Gets download files of azfile
+        /// </summary>
+        /// <param name="url"></param>
+        /// <returns></returns>
         public static Tuple<string, string> GetDownloadFile(string url)
         {
             using (var wc = new WebClient())

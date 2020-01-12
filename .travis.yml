@@ -19,3 +19,7 @@ script:
     - dotnet build Dramarr.Scrapers/Dramarr.Scrapers.csproj --configuration Release
     - dotnet build Dramarr.Scrapers.Tests/Dramarr.Scrapers.Tests.csproj --configuration Release
     # - dotnet test Dramarr.Scrapers.Tests/Dramarr.Scrapers.Tests.csproj
+    
+after-script:
+    - dotnet pack Dramarr.Scrapers/Dramarr.Scrapers.csproj --configuration Release
+    - dotnet nuget push Dramarr.Scrapers/bin/Release/*.nupkg -s "https://nuget.org" -k $NUGET_KEY

@@ -10,11 +10,18 @@
     {
         #region Constructors
 
+        /// <summary>
+        /// Constructor
+        /// </summary>
+        /// <param name="baseUrl"></param>
         public Manager(string baseUrl)
         {
             BaseUrl = baseUrl;
         }
 
+        /// <summary>
+        /// Constructor
+        /// </summary>
         public Manager()
         {
         }
@@ -29,16 +36,30 @@
 
         #region Methods
 
+        /// <summary>
+        /// Gets all shows
+        /// </summary>
+        /// <returns></returns>
         public List<string> GetAllShows()
         {
             return Helpers.GetAllShows(BaseUrl);
         }
 
+        /// <summary>
+        /// Gets latest shows
+        /// </summary>
+        /// <returns></returns>
         public List<string> GetLatestShows()
         {
             return Helpers.GetLatestShows(BaseUrl);
         }
 
+        /// <summary>
+        /// Gets episodes of a show
+        /// </summary>
+        /// <param name="episodes"></param>
+        /// <param name="show"></param>
+        /// <returns></returns>
         public List<Episode> GetEpisodes(List<Episode> episodes, Show show)
         {
             List<Episode> result = new List<Episode>();
@@ -56,11 +77,21 @@
             return result;
         }
 
+        /// <summary>
+        /// Get status of a show
+        /// </summary>
+        /// <param name="urlTitle"></param>
+        /// <returns></returns>
         public Tuple<int, bool> GetStatus(string urlTitle)
         {
             return Helpers.GetStatus(BaseUrl, urlTitle);
         }
 
+        /// <summary>
+        /// Gets metadata of show
+        /// </summary>
+        /// <param name="urlTitle"></param>
+        /// <returns></returns>
         public Metadata GetMetadata(string urlTitle)
         {
             return Helpers.GetMetadata(BaseUrl, urlTitle);

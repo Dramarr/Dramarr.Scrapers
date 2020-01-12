@@ -10,6 +10,11 @@
     {
         #region Methods
 
+        /// <summary>
+        /// Gets all shows
+        /// </summary>
+        /// <param name="url"></param>
+        /// <returns></returns>
         public static List<string> GetAllShows(string url)
         {
             var result = new List<string>();
@@ -17,6 +22,11 @@
             return result;
         }
 
+        /// <summary>
+        /// Gets latest shows
+        /// </summary>
+        /// <param name="url"></param>
+        /// <returns></returns>
         public static List<string> GetLatestShows(string url)
         {
             var result = new List<string>();
@@ -24,6 +34,12 @@
             return result;
         }
 
+        /// <summary>
+        /// Gets azvideo files
+        /// </summary>
+        /// <param name="baseUrl"></param>
+        /// <param name="url"></param>
+        /// <returns></returns>
         public static List<string> GetAzVideoFiles(string baseUrl, string url)
         {
             var result = new List<string>();
@@ -62,6 +78,11 @@
             return result;
         }
 
+        /// <summary>
+        /// Gets download files
+        /// </summary>
+        /// <param name="url"></param>
+        /// <returns></returns>
         public static Tuple<string, string> GetDownloadFile(string url)
         {
             using (var wc = new WebClient())
@@ -88,6 +109,11 @@
             }
         }
 
+        /// <summary>
+        /// Gets shows from a specificied page number
+        /// </summary>
+        /// <param name="baseUrl"></param>
+        /// <returns></returns>
         private static List<string> GetShowsFromPageWithNumber(string baseUrl)
         {
             var result = new List<string>();
@@ -151,6 +177,11 @@
             return result;
         }
 
+        /// <summary>
+        /// Get shows from first page
+        /// </summary>
+        /// <param name="baseUrl"></param>
+        /// <returns></returns>
         private static List<string> GetShowsFromFirstPage(string baseUrl)
         {
             var result = new List<string>();
@@ -199,6 +230,12 @@
             return result;
         }
 
+        /// <summary>
+        /// Gets status of show
+        /// </summary>
+        /// <param name="baseUrl"></param>
+        /// <param name="urlTitle"></param>
+        /// <returns></returns>
         public static Tuple<int, bool> GetStatus(string baseUrl, string urlTitle)
         {
             var result = new List<string>();
@@ -219,6 +256,12 @@
             return new Tuple<int, bool>(episodesCount.Count, isCompleted);
         }
 
+        /// <summary>
+        /// Gets metadata 
+        /// </summary>
+        /// <param name="baseUrl"></param>
+        /// <param name="urlTitle"></param>
+        /// <returns></returns>
         public static Metadata GetMetadata(string baseUrl, string urlTitle)
         {
             var realUrl = $"{baseUrl}shows/{urlTitle}/";
