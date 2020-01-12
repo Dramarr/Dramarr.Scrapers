@@ -1,10 +1,15 @@
 language:
     csharp
-mono: latest 
+sudo: required
+mono: none 
 dotnet: 3.0
 
 os:
   - linux
+
+env:
+    - DOTNET_SKIP_FIRST_TIME_EXPERIENCE=true
+    - DOTNET_CLI_TELEMETRY_OPTOUT=true
 
 before_script:
     - dotnet restore Dramarr.Scrapers/Dramarr.Scrapers.csproj
