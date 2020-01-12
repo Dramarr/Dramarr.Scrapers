@@ -19,7 +19,8 @@
 
             using (var wc = new WebClient())
             {
-                wc.Headers.Add("user-agent", "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko)");
+                wc.Headers.Add("user-agent", "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/79.0.3945.117 Safari/537.36 Edg/79.0.309.60");
+                wc.Headers.Add("referer", $"https://www.estrenosdoramas.net");
 
                 var inner = wc.DownloadString(url);
 
@@ -44,7 +45,8 @@
 
             using (var wc = new WebClient())
             {
-                wc.Headers.Add("user-agent", "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko)");
+                wc.Headers.Add("user-agent", "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/79.0.3945.117 Safari/537.36 Edg/79.0.309.60");
+                wc.Headers.Add("referer", $"https://www.estrenosdoramas.net");
 
                 var inner = wc.DownloadString(url);
 
@@ -98,7 +100,7 @@
                     request.AddHeader("Postman-Token", "2e33f51e-8feb-40b6-861b-a5f1e537338e,029c4cbc-9206-4ffc-b9c9-6e8ed6267f7a");
                     request.AddHeader("Cache-Control", "no-cache");
                     request.AddHeader("Accept", "*/*");
-                    request.AddHeader("User-Agent", "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/69.0.3497.100 Safari/537.36");
+                    request.AddHeader("User-Agent", "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/79.0.3945.117 Safari/537.36 Edg/79.0.309.60 Chrome/69.0.3497.100 Safari/537.36");
                     request.AddHeader("X-Requested-With", "XMLHttpRequest");
                     request.AddHeader("Orig", "https://repro3.estrenosdoramas.us");
                     request.AddHeader("Content-Type", "application/x-www-form-urlencoded");
@@ -122,7 +124,8 @@
 
             using (WebClient wc = new WebClient())
             {
-                wc.Headers.Add("user-agent", "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko)");
+                wc.Headers.Add("user-agent", "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/79.0.3945.117 Safari/537.36 Edg/79.0.309.60");
+                wc.Headers.Add("referer", $"https://www.estrenosdoramas.net");
 
                 var inner = wc.DownloadString($"https://www.estrenosdoramas.net{url}")
                     .Split(new string[] { "<div class=\"listanime\">" }, StringSplitOptions.None)[1]
@@ -148,7 +151,8 @@
 
             using (var wc = new WebClient())
             {
-                wc.Headers.Add("user-agent", "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko)");
+                wc.Headers.Add("user-agent", "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/79.0.3945.117 Safari/537.36 Edg/79.0.309.60");
+                wc.Headers.Add("referer", $"https://www.estrenosdoramas.net");
 
                 var aux = wc.DownloadString($"https://www.estrenosdoramas.net{url}");
                 isCompleted = !aux.Contains("<b>Emisión</b>");
@@ -162,7 +166,8 @@
         {
             using (var wc = new WebClient())
             {
-                wc.Headers.Add("user-agent", "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko)");
+                wc.Headers.Add("user-agent", "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/79.0.3945.117 Safari/537.36 Edg/79.0.309.60");
+                wc.Headers.Add("referer", $"https://www.estrenosdoramas.net");
 
                 var aux = wc.DownloadString($"https://www.estrenosdoramas.net{urlTitle}");
 

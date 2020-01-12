@@ -30,7 +30,8 @@
 
             using (var wc = new WebClient())
             {
-                wc.Headers.Add("user-agent", "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko)");
+                wc.Headers.Add("user-agent", "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/79.0.3945.117 Safari/537.36 Edg/79.0.309.60");
+                wc.Headers.Add("referer", $"{baseUrl}");
 
                 var inner = wc.DownloadString($"{baseUrl}shows/{url}");
 
@@ -65,7 +66,7 @@
         {
             using (var wc = new WebClient())
             {
-                wc.Headers.Add("user-agent", "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko)");
+                wc.Headers.Add("user-agent", "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/79.0.3945.117 Safari/537.36 Edg/79.0.309.60");
 
                 try
                 {
@@ -104,7 +105,8 @@
 
                         using (var wc = new WebClient())
                         {
-                            wc.Headers.Add("user-agent", "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko)");
+                            wc.Headers.Add("user-agent", "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/79.0.3945.117 Safari/537.36 Edg/79.0.309.60");
+                            wc.Headers.Add("referer", $"{baseUrl}");
 
                             var inner = wc.DownloadString(pagedUrl);
 
@@ -160,6 +162,9 @@
 
                 using (var wc = new WebClient())
                 {
+                    wc.Headers.Add("user-agent", "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/79.0.3945.117 Safari/537.36 Edg/79.0.309.60");
+                    wc.Headers.Add("referer", $"{baseUrl}");
+
                     var inner = wc.DownloadString(pagedUrl);
 
                     var split = inner.Split(new string[] { "<div class=\"col-md-8\" id=\"main\">" }, StringSplitOptions.None)[1]
@@ -204,7 +209,8 @@
 
             using (var wc = new WebClient())
             {
-                wc.Headers.Add("user-agent", "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko)");
+                wc.Headers.Add("user-agent", "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/79.0.3945.117 Safari/537.36 Edg/79.0.309.60");
+                wc.Headers.Add("referer", $"{baseUrl}");
 
                 var aux = wc.DownloadString(realUrl);
                 isCompleted = aux.Contains("Complete");
@@ -219,7 +225,8 @@
 
             using (var wc = new WebClient())
             {
-                wc.Headers.Add("user-agent", "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko)");
+                wc.Headers.Add("user-agent", "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/79.0.3945.117 Safari/537.36 Edg/79.0.309.60");
+                wc.Headers.Add("referer", $"{baseUrl}");
 
                 var aux = wc.DownloadString(realUrl);
 
